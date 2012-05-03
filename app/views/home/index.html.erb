@@ -1,0 +1,23 @@
+<% if current_user %>
+  <h1>Leaderboard</h1>
+  <table>
+    <tr>
+      <th>Username</th>
+      <th>Percent lost</th>
+      <th>Goal Reached</th>
+    </tr>
+
+
+    <% @group_members.each do |u| %>
+      <tr>
+        <td><%= u.username %></td>
+        <td><%= u.percent_lost %> %</td>
+        <td><%= u.goal_reached? ? "YES!!!" : "not yet" %></td>
+      </tr>
+    <% end %>
+  </table>
+  <br />
+  <%= link_to 'weight in', new_user_weight_log_path(current_user.id) %> | <%= link_to 'weight log', user_weight_logs_path(current_user.id) %>
+<% else %>
+Create an account or log in now!
+<% end %>

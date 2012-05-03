@@ -1,0 +1,21 @@
+<%= form_for(@weight_log, :url => user_weight_logs_path(current_user)) do |f| %>
+  <% if @weight_log.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@weight_log.errors.count, "error") %> prohibited this weight_log from being saved:</h2>
+
+      <ul>
+      <% @weight_log.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :weight %><br />
+    <%= f.text_field :weight %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
