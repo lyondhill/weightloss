@@ -8,10 +8,10 @@ test:
 
 # set these environment variables on your prod server
 production:
-  host: localhost
-  # port: 33187
-  # username: weight_loss
-  # password: password
+  host: dbh73.mongolab.com/heroku_app4459671
+  port: 27737
+  username: weight
+  password: password
   database: weightloss_production
   # slaves:
   #   - host: slave1.local
