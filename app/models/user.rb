@@ -24,7 +24,8 @@ class User
   def percent_lost
     recent_log = weight_logs.asc(:created_at).last
     recent_weight = recent_log ? recent_log.weight : self.starting_weight
-    (((self.starting_weight - recent_weight ) / self.starting_weight) * 100 ).to_i 
+    (((self.starting_weight - recent_weight ) / self.starting_weight) * 100 ).round(2)
+
   end
 
 end
