@@ -9,6 +9,7 @@ class User
 
   belongs_to :group
   has_many :weight_logs
+  has_many :chats
 
   validates_confirmation_of :password
   validates_presence_of :password, :on => :create

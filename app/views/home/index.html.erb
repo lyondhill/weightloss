@@ -18,6 +18,39 @@
   </table>
   <br />
   <%= link_to 'weight in', new_user_weight_log_path(current_user.id) %> | <%= link_to 'weight log', user_weight_logs_path(current_user.id) %>
+  <br />
+  <br />
+  <h3>Chat</h3>
+  <div>
+    <table>
+      <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+
+    <% @chats.each do |chat| %>
+      <tr>
+        <td><%= chat.created_at.strftime('%m/%d/%Y %H:%M') %> - </td>
+        <td><%= chat.try(:user).try(:username) %>: </td>
+        <td><%= chat.message %></td>
+      </tr>
+    <% end %>
+    </table>
+  </div>
+  <br />
+  <div>
+    <%= form_for(@chat) do |f| %>
+      <div class="field">
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+      </div>
+      <div class="field">
+        <%= f.label :chat %> 
+        <%= f.text_field :message %> 
+        <%= f.submit "send" %>
+      </div>
+    <% end %>    
+  </div>
 <% else %>
 Create an account or log in now!
 <% end %>

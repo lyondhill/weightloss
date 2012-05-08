@@ -1,6 +1,8 @@
 Weightloss::Application.routes.draw do
 
 
+  resources :chats
+
   get "sessions/new"
 
   get "log_out" => "sessions#destroy", :as => "log_out"
