@@ -19,8 +19,8 @@
   <h5>Starting Weight: <%= current_user.starting_weight %></h5>
 </p>  
 <p>
-  <h5>Weight Goal: <%= current_user.weight_goal %></h5>
+  <h5>Weight Goal: <%= current_user.weight_goal %></h5> 
 </p>  
 <br />
 
-<%= link_to 'New Weight log', new_user_weight_log_path(current_user.id) %>
+<%= link_to 'New Weight log', new_user_weight_log_path(current_user.id) %>|<%= link_to 'Edit Weight Goal', edit_user_path(current_user.id) %>
